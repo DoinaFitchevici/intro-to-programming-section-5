@@ -7,6 +7,7 @@ const tooLowMessage = document.getElementById("too-low");
 const maxGuessesMessage = document.getElementById("max-guesses");
 const numberOfGuessesMessage = document.getElementById("num-of-guesses"); //Changed the ID in index.html
 const correctMessage = document.getElementById("correct");
+const numberLessThanZero = document.getElementById("num-less-than-0");
 
 let targetNumber;
 let attempts = 0; //Changed "const" to "let" to reassign
@@ -25,6 +26,11 @@ function getRandomNumber(min, max) {
 function checkGuess() {
   // Get value from guess input element
   let guess = parseInt(guessInput.value, 10);
+
+  if (guess < 1) {
+    numberLessThanZero.style.display = "";
+    return;
+  }
   attempts = attempts + 1;
 
   hideAllMessages();
@@ -75,10 +81,10 @@ function setup() {
   console.log(`target number: ${targetNumber}`);
 
   // Reset number of attempts
-  maxNumberOfAttempts = 5; // Corrected the variable name
+  attempts = 0; // Corrected the variable name
 
   // Enable the input and submit button
-  submitButton.disabled = false;
+  submitButton.disabled = false; //Fixed spelling property name
   guessInput.disabled = false;
 
   hideAllMessages();
