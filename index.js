@@ -5,11 +5,11 @@ const messages = document.getElementsByClassName("message");
 const tooHighMessage = document.getElementById("too-high");
 const tooLowMessage = document.getElementById("too-low");
 const maxGuessesMessage = document.getElementById("max-guesses");
-const numberOfGuessesMessage = document.getElementById("num-of-guesses");
+const numberOfGuessesMessage = document.getElementById("num-of-guesses"); //Changed the ID in index.html
 const correctMessage = document.getElementById("correct");
 
 let targetNumber;
-let attempts = 0;
+let attempts = 0; //Changed "const" to "let" to reassign
 let maxNumberOfAttempts = 5;
 
 // Returns a random number from min (inclusive) to max (exclusive)
@@ -37,13 +37,12 @@ function checkGuess() {
 
     submitButton.disabled = true;
     guessInput.disabled = true;
-  }
-
-  if (guess !== targetNumber) {
+  } else {
     if (guess < targetNumber) {
-      tooLowMessage.style.display = "";
+      tooLowMessage.style.display = ""; //Fixed the display message
     } else {
-      tooHighMessage.style.display = "";
+      tooHighMessage.style.display = ""; //Fixed the display message
+    } else {
     }
 
     const remainingAttempts = maxNumberOfAttempts - attempts;
