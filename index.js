@@ -8,6 +8,7 @@ const maxGuessesMessage = document.getElementById("max-guesses");
 const numberOfGuessesMessage = document.getElementById("num-of-guesses"); //Changed the ID in index.html
 const correctMessage = document.getElementById("correct");
 const numberLessThanZero = document.getElementById("num-less-than-0");
+const numberHigherThan99 = document.getElementById("num-higher-than-99");
 
 let targetNumber;
 let attempts = 0; //Changed "const" to "let" to reassign
@@ -26,12 +27,19 @@ function getRandomNumber(min, max) {
 function checkGuess() {
   // Get value from guess input element
   let guess = parseInt(guessInput.value, 10);
+  attempts = attempts + 1;
 
   if (guess < 1) {
+    // Display a message for guesses lower than 0
     numberLessThanZero.style.display = "";
     return;
   }
-  attempts = attempts + 1;
+
+  if (guess > 99) {
+    // Display a message for guesses higher than 99
+    numberHigherThan99.style.display = "";
+    return; // Exit the function to prevent further execution
+  }
 
   hideAllMessages();
 
