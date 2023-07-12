@@ -42,7 +42,6 @@ function checkGuess() {
       tooLowMessage.style.display = ""; //Fixed the display message
     } else {
       tooHighMessage.style.display = ""; //Fixed the display message
-    } else {
     }
 
     const remainingAttempts = maxNumberOfAttempts - attempts;
@@ -52,9 +51,12 @@ function checkGuess() {
   }
 
   if (attempts === maxNumberOfAttempts) {
+    //Deleted extra '='  comparison operator
     submitButton.disabled = true;
     guessInput.disabled = true;
+    maxGuessesMessage.style.display = ''; //Added the display message
   }
+}
 
   guessInput.value = "";
 
