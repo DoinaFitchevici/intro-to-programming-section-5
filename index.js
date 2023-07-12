@@ -54,9 +54,8 @@ function checkGuess() {
     //Deleted extra '='  comparison operator
     submitButton.disabled = true;
     guessInput.disabled = true;
-    maxGuessesMessage.style.display = ''; //Added the display message
+    maxGuessesMessage.style.display = ""; //Added the display message
   }
-}
 
   guessInput.value = "";
 
@@ -65,6 +64,7 @@ function checkGuess() {
 
 function hideAllMessages() {
   for (let elementIndex = 0; elementIndex < messages.length; elementIndex++) {
+    //Deleted '=' from loop function
     messages[elementIndex].style.display = "none";
   }
 }
@@ -75,7 +75,7 @@ function setup() {
   console.log(`target number: ${targetNumber}`);
 
   // Reset number of attempts
-  maxNumberOfAttempts = 5;
+  maxNumberOfAttempts = 5; // Corrected the variable name
 
   // Enable the input and submit button
   submitButton.disabled = false;
